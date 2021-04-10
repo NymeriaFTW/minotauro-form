@@ -2,6 +2,6 @@ export interface Sala {
   id: number;
   nome: string;
   chegada: boolean;
-  visaoAtual: string;
+  visaoAtual: 'N' | 'S' | 'O' | 'L';
   saidas: string[];
 }

@@ -37,47 +37,6 @@ footer {
 .game {
   padding: 50px;
 
-  .sala {
-    border: 1px solid red;
-    height: 650px;
-    width: 650px;
-
-    display: grid;
-    grid-template-rows: repeat(3, auto);
-    .porta {
-      &-1 {
-        grid-column: 1 / span 3;
-        justify-content: center;
-        > button {
-          height: 30px;
-        }
-      }
-      &-2 {
-        grid-column: 1 / span 1;
-        align-items: center;
-        > button {
-          height: 30px;
-        }
-      }
-      &-3 {
-        grid-column: 3 / span 1;
-        align-items: center;
-        justify-content: flex-end;
-        > button {
-          height: 30px;
-        }
-      }
-      &-4 {
-        grid-column: 1 / span 3;
-        justify-content: center;
-        align-items: flex-end;
-        > button {
-          height: 30px;
-        }
-      }
-    }
-  }
-
   .chat {
     border: 1px solid red;
     height: 650px;

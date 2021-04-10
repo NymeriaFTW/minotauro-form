@@ -7,13 +7,27 @@ import { Sala } from "../models/sala";
   providedIn: "root",
 })
 export class SalaService {
-  api = environment.api;
-
-  url = `${this.api}salas`;
+  private api = environment.api;
+  private url = `${this.api}sala`;
 
   constructor(private http: HttpClient) {}
 
-  getSalas() {
+  comecarJogo() {
     return this.http.get<Sala>(this.url);
+  }
+
+  salvarSaida() {
+    const url = `${this.url}save`;
+    return this.http.post<Sala>(url, null);
+  }
+
+  alterarSala(id: number) {
+    const url = `${this.url}${id}`;
+    return this.http.put<Sala>(url, null);
+  }
+
+  deleteSala(id: number) {
+    const url = `${this.url}${id}`;
+    return this.http.delete<Sala>(url, null);
   }
 }

@@ -4,28 +4,34 @@
 
 <div class="game w-100 h-100">
   <div class="d-flex align-items-center justify-content-around p-30">
-    <div class="sala">
-      <div class="porta-1 d-flex">
-        <button>N</button>
-      </div>
+    <ng-container [ngSwitch]="salaAtual.visaoAtual">
+      <app-visao-norte
+        [salaAtual]="salaAtual"
+        *ngSwitchDefault
+      ></app-visao-norte>
 
-      <div class="porta-2 d-flex">
-        <button>O</button>
-      </div>
-      <div class="porta-3 d-flex">
-        <button class="">L</button>
-      </div>
-      <div class="porta-4 d-flex">
-        <button>voltar</button>
-      </div>
-    </div>
+      <app-visao-leste
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'L'"
+      ></app-visao-leste>
+
+      <app-visao-oeste
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'O'"
+      ></app-visao-oeste>
+
+      <app-visao-sul
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'S'"
+      ></app-visao-sul>
+    </ng-container>
+
     <div class="chat">
-      <p><strong> Você está na sala 1</strong></p>
+      <p><strong>>>Você está na sala 1</strong></p>
       <p>>> escolha uma das portas disponíves</p>
     </div>
   </div>
 </div>
-
 <router-outlet></router-outlet>
 
 <footer>

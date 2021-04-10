@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
+import { Sala } from "./models/sala";
 import { SalaService } from "./services/sala.service";
 
 @Component({
@@ -8,7 +9,11 @@ import { SalaService } from "./services/sala.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
+  salaAtual: Sala;
+
   constructor(private router: Router, private salaService: SalaService) {
-    this.salaService.getSalas().subscribe((res) => console.log(res));
+    this.salaService.comecarJogo().subscribe((res) => {
+      this.salaAtual = res;
+    });
   }
 }
