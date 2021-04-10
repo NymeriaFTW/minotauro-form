@@ -14,6 +14,8 @@ export class BoardComponent {
 
   primeiraRodada = true;
 
+  qtdeVisualizacaoMapa: number;
+
   @Input() set tamanho(value: number) {
     if (value) {
       this.size = value;
@@ -26,6 +28,7 @@ export class BoardComponent {
   constructor(private salaService: SalaService) {}
 
   start() {
+    this.qtdeVisualizacaoMapa = 0;
     this.salaService.comecarJogo(this.size).subscribe((res) => {
       this.salaAtual = res;
       this.logs.push({
@@ -73,6 +76,13 @@ export class BoardComponent {
   private addSalaAtual() {
     this.logs.push({
       mensagem: `${this.salaAtual.nome}`,
+    });
+  }
+
+
+  addMensagemMapa() {
+    this.logs.push({
+      mensagem: `Maps :/`,
     });
   }
 }
