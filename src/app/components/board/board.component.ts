@@ -109,6 +109,7 @@ export class BoardComponent {
       this.salaAtual.nome === "Sala 7" &&
       !this.salaAtual.chegada
     ) {
+      this.salaAtual.saidas = [];
       this.logs.push({
         mensagem: `Você chegou na Sala 7, lamentamos, mas você encontrou a besta. DERROTA!;`,
       });
@@ -116,9 +117,9 @@ export class BoardComponent {
   }
 
   private mensagemVitoria() {
-    this.vitoria.emit();
-
     if (!this.primeiraRodada && this.salaAtual.chegada) {
+      this.vitoria.emit();
+      this.salaAtual.saidas = [];
       this.logs.push({
         mensagem: `PARABÉNS, você chegou ao final do labirinto, a ${this.salaAtual.nome} garante a sua liberdade!`,
       });

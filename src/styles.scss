@@ -144,20 +144,6 @@ h4 {
         }
       }
     }
-
-    .rosa-dos-ventos {
-      grid-column: 3 / span 1;
-      justify-content: center;
-      align-items: center;
-
-      > a {
-        cursor: pointer;
-        > img {
-          width: auto;
-          height: 135px;
-        }
-      }
-    }
   }
 
   .chat {
@@ -173,6 +159,20 @@ h4 {
     border-width: 5px;
     border-image-source: linear-gradient(to left, #836fff, #007ad929);
     overflow: auto;
+  }
+}
+
+.rosa-dos-ventos {
+  grid-column: 3 / span 1;
+  justify-content: center;
+  align-items: center;
+
+  > a {
+    cursor: pointer;
+    > img {
+      width: auto;
+      height: 135px;
+    }
   }
 }
 
