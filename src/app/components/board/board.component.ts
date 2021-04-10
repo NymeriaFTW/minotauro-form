@@ -140,15 +140,22 @@ export class BoardComponent {
     });
   }
 
-  addMensagemMapa() {
+  private addMensagemMapa() {
     this.logs.push({
-      mensagem: `Maps :/`,
+      mensagem: `Uma maldição caiu sobre você e o mapa se perdeu. Você está sozinho.`,
     });
   }
 
   abrirMapa() {
+    console.log(this.qtdeVisualizacaoMapa)
+
+    if (this.qtdeVisualizacaoMapa >= this.salaAtual.tamanho - 2) {
+      this.addMensagemMapa();
+      return;
+    }
+
+    this.qtdeVisualizacaoMapa += 1;
     this.salaService.getMapa().subscribe(res => {
-      console.log(res);
       this.mapaItem = res;
       this.showMapa = true;
     });

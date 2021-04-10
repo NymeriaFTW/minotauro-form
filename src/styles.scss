@@ -72,15 +72,28 @@ h4 {
     border-image-slice: 1;
     border-width: 5px;
     border-image-source: linear-gradient(to left, #836fff, #007ad929);
-
+    .mapa {
+      padding: 30px;
+      border: 1px dashed gray;
+      &.chegada {
+        background-color: aquamarine;
+      }
+    }
     &.size-4 {
-      grid-template-rows: repeat(4, 216px);
-      grid-template-columns: repeat(4, 216px);
+      grid-template-rows: repeat(4, auto);
+      grid-template-columns: repeat(4, auto);
+
+      .mapa {
+        padding: 5px;
+      }
     }
 
     &.size-5 {
-      grid-template-rows: repeat(5, 216px);
-      grid-template-columns: repeat(5, 216px);
+      grid-template-rows: repeat(5, auto);
+      grid-template-columns: repeat(5, auto);
+      .mapa {
+        padding: 5px;
+      }
     }
 
     .porta {

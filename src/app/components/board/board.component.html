@@ -1,10 +1,36 @@
+<button
+  *ngIf="showMapa"
+  type="button"
+  class="btn btn-primary"
+  (click)="showMapa = false"
+>
+  Fechar o mapa
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    fill="currentColor"
+    class="bi bi-x-square"
+    viewBox="0 0 16 16"
+  >
+    <path
+      d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+    />
+    <path
+      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+    />
+  </svg>
+</button>
+
 <div class="d-flex align-items-center justify-content-around p-30">
   <ng-container *ngIf="showMapa; else boardTemplate">
-    <div class="sala size-{{this.salaAtual.tamanho}}">
-      <div class="mapa" *ngFor="let mapa of mapaItem">
-        <p><strong>{{ mapa.nome }}</strong></p>
+    <div class="sala size-{{ this.salaAtual.tamanho }}">
+      <div class="mapa" *ngFor="let mapa of mapaItem" [ngClass]="{'chegada': mapa.chegada}">
+        <p>
+          <strong>{{ mapa.nome }}</strong>
+        </p>
         <p>Portas: {{ mapa.saidas }}</p>
-        <p>Saída? {{ mapa.chegada }}</p>
+        <p *ngIf="mapa.chegada"></p>
       </div>
     </div>
   </ng-container>
@@ -12,38 +38,30 @@
   <ng-template #boardTemplate>
     <ng-container [ngSwitch]="salaAtual?.visaoAtual">
       <app-visao-norte
-        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
         [salaAtual]="salaAtual"
         *ngSwitchDefault
         (portaEscolhida)="irParaProximaPorta($event)"
-        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
         (onAbrirMapa)="abrirMapa()"
       ></app-visao-norte>
 
       <app-visao-leste
-        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
         [salaAtual]="salaAtual"
         *ngSwitchCase="'L'"
         (portaEscolhida)="irParaProximaPorta($event)"
-        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
         (onAbrirMapa)="abrirMapa()"
       ></app-visao-leste>
 
       <app-visao-oeste
-        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
         [salaAtual]="salaAtual"
         *ngSwitchCase="'O'"
         (portaEscolhida)="irParaProximaPorta($event)"
-        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
         (onAbrirMapa)="abrirMapa()"
       ></app-visao-oeste>
 
       <app-visao-sul
-        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
         [salaAtual]="salaAtual"
         *ngSwitchCase="'S'"
         (portaEscolhida)="irParaProximaPorta($event)"
-        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
         (onAbrirMapa)="abrirMapa()"
       ></app-visao-sul>
     </ng-container>

@@ -21,22 +21,11 @@ export class VisaoNorteComponent {
     }
   }
 
-  @Input() qtdeVisualizacaoMapa: number;
-
   @Output() portaEscolhida = new EventEmitter<any>();
-
-  @Output() qtdeVisualizacaoMapaExcedida = new EventEmitter<void>();
 
   @Output() onAbrirMapa = new EventEmitter<void>();
 
   abrirMapa() {
-    if (this.qtdeVisualizacaoMapa >= this.sala.tamanho - 2) {
-      this.qtdeVisualizacaoMapaExcedida.emit();
-
-      return;
-    }
-
-    this.qtdeVisualizacaoMapa += 1;
     this.onAbrirMapa.emit();
   }
 }
