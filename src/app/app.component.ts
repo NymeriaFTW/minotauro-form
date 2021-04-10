@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { PaisService } from './services/pais.service';
+import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { SalaService } from "./services/sala.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  constructor(private router: Router, private paisService: PaisService) {
-    this.paisService.getCandidatos().subscribe(res => console.log(res));
+  constructor(private router: Router, private salaService: SalaService) {
+    this.salaService.getSalas().subscribe((res) => console.log(res));
   }
 }

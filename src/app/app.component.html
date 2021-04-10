@@ -1,36 +1,33 @@
 <header>
-  <a href="/"><h3>Conquests</h3></a>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="cadastro"
-        ><i class="pi pi-plus align-text-bottom"></i> Cadastrar candidato</a
-      >
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="listar-candidatos"
-        ><i class="pi pi-list align-text-bottom"></i> Listar candidatos</a
-      >
-    </li>
-  </ul>
+  <a href="/"><h3>Hackathon Minotauro</h3></a>
 </header>
 
-<div class="jumbotron" *ngIf="router.url === '/'">
-  <div class="row">
-    <div class="col-12">
-      <h3>Concurso N.º 1000</h3>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 2019.
-      </p>
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. .
-      </p>
+<div class="game w-100 h-100">
+  <div class="d-flex align-items-center justify-content-around p-30">
+    <div class="sala">
+      <div class="porta-1 d-flex">
+        <button>N</button>
+      </div>
+
+      <div class="porta-2 d-flex">
+        <button>O</button>
+      </div>
+      <div class="porta-3 d-flex">
+        <button class="">L</button>
+      </div>
+      <div class="porta-4 d-flex">
+        <button>voltar</button>
+      </div>
+    </div>
+    <div class="chat">
+      <p><strong> Você está na sala 1</strong></p>
+      <p>>> escolha uma das portas disponíves</p>
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>
+
 <footer>
   <div class="row">
     <div class="col-12">
