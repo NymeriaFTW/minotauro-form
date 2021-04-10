@@ -25,7 +25,11 @@
 <div class="d-flex align-items-center justify-content-around p-30">
   <ng-container *ngIf="showMapa; else boardTemplate">
     <div class="sala size-{{ this.salaAtual.tamanho }}">
-      <div class="mapa" *ngFor="let mapa of mapaItem" [ngClass]="{'chegada': mapa.chegada}">
+      <div
+        class="mapa"
+        *ngFor="let mapa of mapaItem"
+        [ngClass]="{ chegada: mapa.chegada }"
+      >
         <p>
           <strong>{{ mapa.nome }}</strong>
         </p>
@@ -38,6 +42,7 @@
   <ng-template #boardTemplate>
     <ng-container [ngSwitch]="salaAtual?.visaoAtual">
       <app-visao-norte
+        [primeiraRodada]="primeiraRodada"
         [salaAtual]="salaAtual"
         *ngSwitchDefault
         (portaEscolhida)="irParaProximaPorta($event)"
@@ -45,6 +50,7 @@
       ></app-visao-norte>
 
       <app-visao-leste
+        [primeiraRodada]="primeiraRodada"
         [salaAtual]="salaAtual"
         *ngSwitchCase="'L'"
         (portaEscolhida)="irParaProximaPorta($event)"
@@ -52,6 +58,7 @@
       ></app-visao-leste>
 
       <app-visao-oeste
+        [primeiraRodada]="primeiraRodada"
         [salaAtual]="salaAtual"
         *ngSwitchCase="'O'"
         (portaEscolhida)="irParaProximaPorta($event)"
@@ -59,6 +66,7 @@
       ></app-visao-oeste>
 
       <app-visao-sul
+        [primeiraRodada]="primeiraRodada"
         [salaAtual]="salaAtual"
         *ngSwitchCase="'S'"
         (portaEscolhida)="irParaProximaPorta($event)"

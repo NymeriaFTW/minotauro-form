@@ -1,4 +1,4 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Sala } from "../../models/sala";
 import { SalaService } from "../../services/sala.service";
 import { mensagens } from "./mensagens";
@@ -29,6 +29,8 @@ export class BoardComponent {
 
   salaAtual: Sala;
 
+  @Output() vitoria = new EventEmitter<void>();
+
   constructor(private salaService: SalaService) {}
 
   start() {
@@ -52,7 +54,6 @@ export class BoardComponent {
         this.mensagemVitoria();
 
         this.mensagemDerrota();
-
 
         if (this.salaAtual.nome === "Sala 7" && !this.salaAtual.chegada) {
           this.logs.push({
@@ -127,6 +128,8 @@ export class BoardComponent {
   }
 
   private mensagemVitoria() {
+    this.vitoria.emit();
+
     if (!this.primeiraRodada && this.salaAtual.chegada) {
       this.logs.push({
         mensagem: `PARABÉNS, você chegou ao final do labirinto, a ${this.salaAtual.nome} garante a sua liberdade!`,
@@ -147,7 +150,7 @@ export class BoardComponent {
   }
 
   abrirMapa() {
-    console.log(this.qtdeVisualizacaoMapa)
+    console.log(this.qtdeVisualizacaoMapa);
 
     if (this.qtdeVisualizacaoMapa >= this.salaAtual.tamanho - 2) {
       this.addMensagemMapa();
@@ -155,7 +158,7 @@ export class BoardComponent {
     }
 
     this.qtdeVisualizacaoMapa += 1;
-    this.salaService.getMapa().subscribe(res => {
+    this.salaService.getMapa().subscribe((res) => {
       this.mapaItem = res;
       this.showMapa = true;
     });

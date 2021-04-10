@@ -52,7 +52,7 @@
     ></a>
   </div>
 
-  <div class="porta-4 d-flex">
+  <div *ngIf="primeiraRodada" class="porta-4 d-flex">
     <a (click)="portaEscolhida.emit('O')"
       ><svg
         xmlns="http://www.w3.org/2000/svg"

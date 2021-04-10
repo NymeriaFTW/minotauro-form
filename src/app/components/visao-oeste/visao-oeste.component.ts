@@ -12,6 +12,8 @@ export class VisaoOesteComponent {
   hasSaidaSul = false;
   hasSaidaNorte = false;
 
+  @Input() primeiraRodada;
+
   @Input() set salaAtual(value: Sala) {
     if (value) {
       this.sala = value;
