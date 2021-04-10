@@ -45,6 +45,7 @@ h4 {
 }
 
 .game {
+  height: calc(100vh - 94px);
   padding: 50px;
 
   .sala {
@@ -103,7 +104,7 @@ h4 {
 
       > img {
         width: auto;
-        height: 155px;
+        height: 135px;
       }
     }
   }

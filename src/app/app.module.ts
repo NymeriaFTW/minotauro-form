@@ -8,9 +8,10 @@ import { VisaoNorteComponent } from './components/visao-norte/visao-norte.compon
 import { VisaoLesteComponent } from './components/visao-leste/visao-leste.component';
 import { VisaoOesteComponent } from './components/visao-oeste/visao-oeste.component';
 import { VisaoSulComponent } from './components/visao-sul/visao-sul.component';
+import { BoardComponent } from './components/board/board.component';
 
 @NgModule({
-  declarations: [AppComponent, VisaoNorteComponent, VisaoLesteComponent, VisaoOesteComponent, VisaoSulComponent],
+  declarations: [AppComponent, VisaoNorteComponent, VisaoLesteComponent, VisaoOesteComponent, VisaoSulComponent, BoardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

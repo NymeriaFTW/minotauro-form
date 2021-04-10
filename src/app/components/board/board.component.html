@@ -1,0 +1,41 @@
+<div class="game w-100">
+  <div class="d-flex align-items-center justify-content-around p-30">
+    <ng-container [ngSwitch]="salaAtual?.visaoAtual">
+      <app-visao-norte
+        [salaAtual]="salaAtual"
+        *ngSwitchDefault
+        (portaEscolhida)="doSomething()"
+      ></app-visao-norte>
+
+      <app-visao-leste
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'L'"
+        (portaEscolhida)="doSomething()"
+      ></app-visao-leste>
+
+      <app-visao-oeste
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'O'"
+        (portaEscolhida)="doSomething()"
+      ></app-visao-oeste>
+
+      <app-visao-sul
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'S'"
+        (portaEscolhida)="doSomething()"
+      ></app-visao-sul>
+    </ng-container>
+
+    <div class="chat">
+      <p>
+        <strong>>> Você está na {{ salaAtual?.nome }}</strong>
+      </p>
+      <p>Início de sua jornada;</p>
+      <p>
+        Chegamos a sala 4, você pode sentir o cheiro do minotauro e precisa
+        correr, uma decisão precisa ser tomada, e você tem
+        {{ salaAtual?.saidas?.length }} portas disponíveis.
+      </p>
+    </div>
+  </div>
+</div>

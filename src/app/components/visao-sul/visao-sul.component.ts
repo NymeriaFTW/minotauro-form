@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { Sala } from "../../models/sala";
 
 @Component({
@@ -6,20 +6,22 @@ import { Sala } from "../../models/sala";
   templateUrl: "./visao-sul.component.html",
   styleUrls: ["./visao-sul.component.scss"],
 })
-export class VisaoSulComponent implements OnInit {
+export class VisaoSulComponent {
   sala: Sala;
-  hasSaidaNorte = false;
+  hasSaidaOeste = false;
   hasSaidaSul = false;
   hasSaidaLeste = false;
 
   @Input() set salaAtual(value: Sala) {
-    this.sala = value;
-    this.hasSaidaSul = value.saidas.includes("S");
-    this.hasSaidaLeste = value.saidas.includes("L");
-    this.hasSaidaNorte = value.saidas.includes("N");
+    if (value) {
+      this.sala = value;
+      this.hasSaidaSul = value.saidas.includes("S");
+      this.hasSaidaLeste = value.saidas.includes("L");
+      this.hasSaidaOeste = value.saidas.includes("O");
+    }
   }
 
-  constructor() {}
+  @Output() portaEscolhida = new EventEmitter<any>();
 
-  ngOnInit() {}
+  constructor() {}
 }
