@@ -27,6 +27,8 @@ export class VisaoNorteComponent {
 
   @Output() qtdeVisualizacaoMapaExcedida = new EventEmitter<void>();
 
+  @Output() onAbrirMapa = new EventEmitter<void>();
+
   abrirMapa() {
     if (this.qtdeVisualizacaoMapa >= this.sala.tamanho - 2) {
       this.qtdeVisualizacaoMapaExcedida.emit();
@@ -35,7 +37,6 @@ export class VisaoNorteComponent {
     }
 
     this.qtdeVisualizacaoMapa += 1;
-    console.log("aqui " + this.qtdeVisualizacaoMapa);
-    //abrir o mapa
+    this.onAbrirMapa.emit();
   }
 }

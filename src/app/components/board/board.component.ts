@@ -16,6 +16,10 @@ export class BoardComponent {
 
   qtdeVisualizacaoMapa: number;
 
+  showMapa = false;
+
+  mapaItem: any[] = [];
+
   @Input() set tamanho(value: number) {
     if (value) {
       this.size = value;
@@ -139,6 +143,14 @@ export class BoardComponent {
   addMensagemMapa() {
     this.logs.push({
       mensagem: `Maps :/`,
+    });
+  }
+
+  abrirMapa() {
+    this.salaService.getMapa().subscribe(res => {
+      console.log(res);
+      this.mapaItem = res;
+      this.showMapa = true;
     });
   }
 }

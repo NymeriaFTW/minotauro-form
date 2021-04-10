@@ -12,6 +12,10 @@ export class SalaService {
 
   constructor(private http: HttpClient) {}
 
+  getMapa() {
+    return this.http.get<any[]>(this.url);
+  }
+
   comecarJogo(tamanho: number) {
     const url = `${this.url}/${tamanho}`;
     return this.http.get<Sala>(url);

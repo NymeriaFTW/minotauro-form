@@ -1,37 +1,53 @@
 <div class="d-flex align-items-center justify-content-around p-30">
-  <ng-container [ngSwitch]="salaAtual?.visaoAtual">
-    <app-visao-norte
-      [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
-      [salaAtual]="salaAtual"
-      *ngSwitchDefault
-      (portaEscolhida)="irParaProximaPorta($event)"
-      (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
-    ></app-visao-norte>
-
-    <app-visao-leste
-      [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
-      [salaAtual]="salaAtual"
-      *ngSwitchCase="'L'"
-      (portaEscolhida)="irParaProximaPorta($event)"
-      (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
-    ></app-visao-leste>
-
-    <app-visao-oeste
-      [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
-      [salaAtual]="salaAtual"
-      *ngSwitchCase="'O'"
-      (portaEscolhida)="irParaProximaPorta($event)"
-      (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
-    ></app-visao-oeste>
-
-    <app-visao-sul
-      [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
-      [salaAtual]="salaAtual"
-      *ngSwitchCase="'S'"
-      (portaEscolhida)="irParaProximaPorta($event)"
-      (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
-    ></app-visao-sul>
+  <ng-container *ngIf="showMapa; else boardTemplate">
+    <div class="sala size-{{this.salaAtual.tamanho}}">
+      <div class="mapa" *ngFor="let mapa of mapaItem">
+        <p><strong>{{ mapa.nome }}</strong></p>
+        <p>Portas: {{ mapa.saidas }}</p>
+        <p>Saída? {{ mapa.chegada }}</p>
+      </div>
+    </div>
   </ng-container>
+
+  <ng-template #boardTemplate>
+    <ng-container [ngSwitch]="salaAtual?.visaoAtual">
+      <app-visao-norte
+        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
+        [salaAtual]="salaAtual"
+        *ngSwitchDefault
+        (portaEscolhida)="irParaProximaPorta($event)"
+        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
+        (onAbrirMapa)="abrirMapa()"
+      ></app-visao-norte>
+
+      <app-visao-leste
+        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'L'"
+        (portaEscolhida)="irParaProximaPorta($event)"
+        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
+        (onAbrirMapa)="abrirMapa()"
+      ></app-visao-leste>
+
+      <app-visao-oeste
+        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'O'"
+        (portaEscolhida)="irParaProximaPorta($event)"
+        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
+        (onAbrirMapa)="abrirMapa()"
+      ></app-visao-oeste>
+
+      <app-visao-sul
+        [qtdeVisualizacaoMapa]="qtdeVisualizacaoMapa"
+        [salaAtual]="salaAtual"
+        *ngSwitchCase="'S'"
+        (portaEscolhida)="irParaProximaPorta($event)"
+        (qtdeVisualizacaoMapaExcedida)="addMensagemMapa()"
+        (onAbrirMapa)="abrirMapa()"
+      ></app-visao-sul>
+    </ng-container>
+  </ng-template>
 
   <div class="chat">
     <p *ngFor="let m of logs">
