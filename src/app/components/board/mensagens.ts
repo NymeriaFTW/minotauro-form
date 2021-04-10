@@ -1,1 +1,1 @@
-export const mensagens = []
+export const mensagens = [{ mensagem: "Início de sua jornada" }];
