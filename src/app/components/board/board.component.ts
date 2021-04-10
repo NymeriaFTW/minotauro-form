@@ -48,6 +48,51 @@ export class BoardComponent {
             mensagem: `PARABÉNS, você chegou ao final do labirinto, a ${this.salaAtual.nome} garante a sua liberdade!`,
           });
         }
+
+        if (this.salaAtual.nome === 'Sala 5' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Você está chegando no lado obscuro do labirinto! Fuja, a besta está perto!`,
+          });
+        }
+
+        if (this.salaAtual.nome === 'Sala 6' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Você chegou a Sala 6, o cheiro vindo dos infelizes que foram mortos pelo minotauro é quase insuportável,
+                     mas agora você precisa seguir para sair dessa situação.`,
+          });
+        }
+
+        if (this.salaAtual.nome === 'Sala 4' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Você pode sentir o cheiro do minotauro e precisa correr, 
+                        uma decisão precisa ser tomada.`,
+          });
+        }
+
+        if (this.salaAtual.nome === 'Sala 11' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Conseguiu ouvir? A Besta está próxima. Quer desistir? Ou vai Conseguir Sair.`,
+          });
+        }
+
+        if (this.salaAtual.nome === 'Sala 3' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Uma leve brisa pode ser sentida a saída deve estar próxima`,
+          });
+        }
+
+        if (this.salaAtual.nome === 'Sala 12' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Que estranho está decisão?! Continue se tiver coragem`,
+          });
+        }
+
+        if (this.salaAtual.nome === 'Sala 20' && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Obaa! Um pouco de água fresca!`,
+          });
+        }
+        
       });
   }
 }
