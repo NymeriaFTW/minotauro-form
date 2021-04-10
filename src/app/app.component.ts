@@ -8,4 +8,8 @@ export class AppComponent {
   tamanho: number;
 
   constructor() {}
+
+  voltarMenu() {
+    this.tamanho = null;
+  }
 }

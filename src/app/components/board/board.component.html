@@ -1,35 +1,33 @@
-<div class="game w-100">
-  <div class="d-flex align-items-center justify-content-around p-30">
-    <ng-container [ngSwitch]="salaAtual?.visaoAtual">
-      <app-visao-norte
-        [salaAtual]="salaAtual"
-        *ngSwitchDefault
-        (portaEscolhida)="irParaProximaPorta($event)"
-      ></app-visao-norte>
+<div class="d-flex align-items-center justify-content-around p-30">
+  <ng-container [ngSwitch]="salaAtual?.visaoAtual">
+    <app-visao-norte
+      [salaAtual]="salaAtual"
+      *ngSwitchDefault
+      (portaEscolhida)="irParaProximaPorta($event)"
+    ></app-visao-norte>
 
-      <app-visao-leste
-        [salaAtual]="salaAtual"
-        *ngSwitchCase="'L'"
-        (portaEscolhida)="irParaProximaPorta($event)"
-      ></app-visao-leste>
+    <app-visao-leste
+      [salaAtual]="salaAtual"
+      *ngSwitchCase="'L'"
+      (portaEscolhida)="irParaProximaPorta($event)"
+    ></app-visao-leste>
 
-      <app-visao-oeste
-        [salaAtual]="salaAtual"
-        *ngSwitchCase="'O'"
-        (portaEscolhida)="irParaProximaPorta($event)"
-      ></app-visao-oeste>
+    <app-visao-oeste
+      [salaAtual]="salaAtual"
+      *ngSwitchCase="'O'"
+      (portaEscolhida)="irParaProximaPorta($event)"
+    ></app-visao-oeste>
 
-      <app-visao-sul
-        [salaAtual]="salaAtual"
-        *ngSwitchCase="'S'"
-        (portaEscolhida)="irParaProximaPorta($event)"
-      ></app-visao-sul>
-    </ng-container>
+    <app-visao-sul
+      [salaAtual]="salaAtual"
+      *ngSwitchCase="'S'"
+      (portaEscolhida)="irParaProximaPorta($event)"
+    ></app-visao-sul>
+  </ng-container>
 
-    <div class="chat">
-      <p *ngFor="let m of logs">
-        <strong>>> {{ m.mensagem }}</strong>
-      </p>
-    </div>
+  <div class="chat">
+    <p *ngFor="let m of logs">
+      <strong>>> {{ m.mensagem }}</strong>
+    </p>
   </div>
 </div>
