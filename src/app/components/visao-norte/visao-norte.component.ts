@@ -21,7 +21,19 @@ export class VisaoNorteComponent {
     }
   }
 
+  @Input() qtdeVisualizacaoMapa
+
   @Output() portaEscolhida = new EventEmitter<any>();
   constructor() {}
+
+  abrirMapa() {
+    if (this.qtdeVisualizacaoMapa >= this.sala.tamanho-2) {
+      console.log("return");
+      return;
+    }
+    this.qtdeVisualizacaoMapa+=1;
+    console.log("aqui " + this.qtdeVisualizacaoMapa);
+    //abrir o mapa
+  }
 
 }

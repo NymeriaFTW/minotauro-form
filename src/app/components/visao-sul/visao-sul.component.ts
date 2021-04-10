@@ -21,7 +21,18 @@ export class VisaoSulComponent {
     }
   }
 
+  @Input() qtdeVisualizacaoMapa
+
   @Output() portaEscolhida = new EventEmitter<string>();
 
   constructor() {}
+
+  abrirMapa() {
+    if (this.qtdeVisualizacaoMapa >= this.sala.tamanho-2) {
+      return;
+    }
+    this.qtdeVisualizacaoMapa+=1;
+    console.log("aqui " + this.qtdeVisualizacaoMapa);
+    //abrir o mapa
+  }
 }

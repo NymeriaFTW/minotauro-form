@@ -11,6 +11,7 @@ import { mensagens } from "./mensagens";
 export class BoardComponent {
   size: number;
   logs: any[] = [];
+  qtdeVisualizacaoMapa: number;
 
   @Input() set tamanho(value: number) {
     if (value) {
@@ -24,6 +25,7 @@ export class BoardComponent {
   constructor(private salaService: SalaService) {}
 
   start() {
+    this.qtdeVisualizacaoMapa = 0;
     this.salaService.comecarJogo(this.size).subscribe((res) => {
       this.salaAtual = res;
       this.logs.push(mensagens[0]);
