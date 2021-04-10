@@ -1,15 +1,15 @@
 <div class="sala">
   <div class="porta-1 d-flex">
-    <button *ngIf="hasSaidaNorte">Norte</button>
+    <button *ngIf="hasSaidaNorte"  (click)="portaEscolhida.emit('N')">Norte</button>
   </div>
   <div class="porta-2 d-flex">
-    <button *ngIf="hasSaidaOeste">Oeste</button>
+    <button *ngIf="hasSaidaOeste" (click)="portaEscolhida.emit('O')">Oeste</button>
   </div>
   <div class="porta-3 d-flex">
-    <button *ngIf="hasSaidaLeste">Leste</button>
+    <button *ngIf="hasSaidaLeste" (click)="portaEscolhida.emit('L')">Leste</button>
   </div>
   <div class="porta-4 d-flex">
-    <button>voltar</button>
+    <button (click)="portaEscolhida.emit('S')">voltar</button>
   </div>
 
   <div class="rosa-dos-ventos d-flex">

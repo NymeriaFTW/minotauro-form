@@ -21,7 +21,7 @@ export class VisaoSulComponent {
     }
   }
 
-  @Output() portaEscolhida = new EventEmitter<any>();
+  @Output() portaEscolhida = new EventEmitter<string>();
 
   constructor() {}
 }

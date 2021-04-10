@@ -4,4 +4,5 @@ export interface Sala {
   chegada: boolean;
   visaoAtual: 'N' | 'S' | 'O' | 'L';
   saidas: string[];
+  tamanho?: number;
 }

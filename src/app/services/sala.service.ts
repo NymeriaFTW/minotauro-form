@@ -12,8 +12,14 @@ export class SalaService {
 
   constructor(private http: HttpClient) {}
 
-  comecarJogo() {
-    return this.http.get<Sala>(this.url);
+  comecarJogo(tamanho: number) {
+    const url = `${this.url}/${tamanho}`;
+    return this.http.get<Sala>(url);
+  }
+
+  proximaSala(idSala: number, portaEscolhida: string, tamanho: number) {
+    const url = `${this.url}/${idSala}/${portaEscolhida}/${tamanho}`;
+    return this.http.get<Sala>(url);
   }
 
   salvarSaida() {
