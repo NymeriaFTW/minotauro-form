@@ -55,18 +55,6 @@ export class BoardComponent {
 
         this.mensagemDerrota();
 
-        if (this.salaAtual.nome === "Sala 7" && !this.salaAtual.chegada) {
-          this.logs.push({
-            mensagem: `Você chegou na Sala 7, lamentamos, mas você encontrou a besta. DERROTA!;`,
-          });
-        }
-
-        if (this.salaAtual.chegada) {
-          this.logs.push({
-            mensagem: `PARABÉNS, você chegou ao final do labirinto, a ${this.salaAtual.nome} garante a sua liberdade!`,
-          });
-        }
-
         if (this.salaAtual.nome === "Sala 5" && !this.salaAtual.chegada) {
           this.logs.push({
             mensagem: `Você está chegando no lado obscuro do labirinto! Fuja, a besta está perto!`,
