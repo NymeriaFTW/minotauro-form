@@ -52,18 +52,33 @@
   </ng-template>
 
   <div *ngIf="showMapa" class="d-flex flex-column">
-
-
     <div class="rosa-dos-ventos d-flex">
       <a>
-        <img *ngIf="salaAtual.visaoAtual === 'O'" src="../../../assets/img/rosa-dos-ventos/oeste.png" />
-        <img *ngIf="salaAtual.visaoAtual === 'L'" src="../../../assets/img/rosa-dos-ventos/leste.png" />
-        <img *ngIf="salaAtual.visaoAtual === 'N'" src="../../../assets/img/rosa-dos-ventos/norte.png" />
-        <img *ngIf="salaAtual.visaoAtual === 'S'" src="../../../assets/img/rosa-dos-ventos/sul.png" />
+        <img
+          *ngIf="salaAtual.visaoAtual === 'O'"
+          src="../../../assets/img/rosa-dos-ventos/oeste.png"
+        />
+        <img
+          *ngIf="salaAtual.visaoAtual === 'L'"
+          src="../../../assets/img/rosa-dos-ventos/leste.png"
+        />
+        <img
+          *ngIf="salaAtual.visaoAtual === 'N'"
+          src="../../../assets/img/rosa-dos-ventos/norte.png"
+        />
+        <img
+          *ngIf="salaAtual.visaoAtual === 'S'"
+          src="../../../assets/img/rosa-dos-ventos/sul.png"
+        />
       </a>
     </div>
 
-    <button type="button" class="btn btn-primary" style="margin-top: 30px;" (click)="showMapa = false">
+    <button
+      type="button"
+      class="btn btn-primary"
+      style="margin-top: 30px"
+      (click)="showMapa = false"
+    >
       Fechar o mapa
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +100,7 @@
 
   <div class="chat">
     <p *ngFor="let m of logs">
-      <strong>>> {{ m.mensagem }}</strong>
+      <strong> <span class="texto-roxo">>>></span> {{ m.mensagem }}</strong>
     </p>
   </div>
 </div>

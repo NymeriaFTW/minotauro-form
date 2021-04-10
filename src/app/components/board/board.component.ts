@@ -55,6 +55,12 @@ export class BoardComponent {
 
         this.mensagemDerrota();
 
+        if (this.salaAtual.nome === "Sala 2" && !this.salaAtual.chegada) {
+          this.logs.push({
+            mensagem: `Um momento de alivío, você consegue andar livremente e até respirar caso seja necessário.`,
+          });
+        }
+
         if (this.salaAtual.nome === "Sala 5" && !this.salaAtual.chegada) {
           this.logs.push({
             mensagem: `Você está chegando no lado obscuro do labirinto! Fuja, a besta está perto!`,

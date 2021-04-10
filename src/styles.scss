@@ -204,3 +204,14 @@ h4 {
   transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px)
     rotateY(-105deg);
 }
+
+
+.list-group-item {
+  &:hover {
+    color: #836fff;
+  }
+}
+
+.texto-roxo{
+  color: #836fff;
+}
