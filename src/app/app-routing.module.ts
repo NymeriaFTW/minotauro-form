@@ -1,20 +1,22 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  { path: "", redirectTo: "home", pathMatch: "full" },
   {
     path: "cadastro",
-    loadChildren: "./cadastro/cadastro.module#CadastroModule"
+    loadChildren: "./cadastro/cadastro.module#CadastroModule",
   },
   {
     path: "listar-candidatos",
-    loadChildren: "./listar-candidatos/listar-candidatos.module#ListarCandidatosModule"
-  }
+    loadChildren:
+      "./listar-candidatos/listar-candidatos.module#ListarCandidatosModule",
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes), HttpClientModule],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
