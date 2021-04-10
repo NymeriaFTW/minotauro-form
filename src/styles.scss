@@ -4,7 +4,7 @@ body {
   position: relative;
   font-size: 14px !important;
   color: #495057 !important;
-  background-color: #FAFAFA !important;
+  background-color: #fafafa !important;
 }
 
 label,
@@ -43,4 +43,74 @@ h4 {
 
 .no-padding {
   padding: 0;
+}
+
+.game {
+  padding: 50px;
+
+  .sala {
+    border: 1px solid red;
+    height: 650px;
+    width: 650px;
+
+    display: grid;
+    grid-template-rows: repeat(3, 216px);
+    grid-template-columns: repeat(3, 216px);
+
+
+      border: 10px solid;
+      border-image-slice: 1;
+      border-width: 5px;
+      border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+
+    .porta {
+      &-1 {
+        grid-column: 1 / span 3;
+        justify-content: center;
+        > button {
+          height: 30px;
+        }
+      }
+      &-2 {
+        grid-column: 1 / span 1;
+        align-items: center;
+        > button {
+          height: 30px;
+        }
+      }
+      &-3 {
+        grid-column: 3 / span 1;
+        align-items: center;
+        justify-content: flex-end;
+        > button {
+          height: 30px;
+        }
+      }
+      &-4 {
+        grid-column: 2 / span 1;
+        justify-content: center;
+        align-items: flex-end;
+        > button {
+          height: 30px;
+        }
+      }
+    }
+    .rosa-dos-ventos {
+      grid-column: 3 / span 1;
+      justify-content: center;
+      align-items: center;
+
+      > img {
+        width: auto;
+        height: 155px;
+      }
+    }
+  }
+
+  .chat {
+    border: 1px solid red;
+    height: 650px;
+    width: 650px;
+    padding: 30px;
+  }
 }
