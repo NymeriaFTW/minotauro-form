@@ -6,7 +6,20 @@
 <!-- <div class="backDoor">
   <div class="door"></div>
 </div> -->
-<app-board></app-board>
+
+<div *ngIf="!tamanho" class="d-flex justify-content-center">
+  <ul class="list-group">
+    <li class="list-group-item" (click)="tamanho = 3">Fácil</li>
+
+    <li class="list-group-item" (click)="tamanho = 4">Médio</li>
+
+    <li class="list-group-item" (click)="tamanho = 5">Difícil</li>
+  </ul>
+</div>
+
+<ng-container *ngIf="tamanho">
+  <app-board [tamanho]="tamanho"></app-board>
+</ng-container>
 
 <footer>
   <div class="row">
